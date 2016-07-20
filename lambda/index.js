@@ -14,8 +14,8 @@ var config = {
 
 // Application Custom States
 var states = {
-    STARTMODE: '_STARTMODE', // Prompt the user to start or restart learning
-    HELPMODE: '_HELPMODE'   // User requests Help
+    STARTMODE: '_STARTMODE',
+    SEARCHMODE: '_SEARCHMODE'
 };
 
 var url = function(searchFilter){
