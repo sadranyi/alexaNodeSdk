@@ -10,8 +10,13 @@ var cardContent = "Learn about Ghana using Alexa flash card";
 
 var config = {
     APP_ID : "amzn1.ask.skill.ae4eb4ed-6c4e-475d-ac16-d4a0865a28ce",
-
 }
+
+// Application Custom States
+var states = {
+    STARTMODE: '_STARTMODE', // Prompt the user to start or restart learning
+    HELPMODE: '_HELPMODE'   // User requests Help
+};
 
 var url = function(searchFilter){
     return "http://apiurl";
@@ -20,8 +25,24 @@ var url = function(searchFilter){
 exports.handler = function (event, context, callback) {
     var alexa = Alexa.handler(event, context);
     alexa.APP_ID = config.APP_ID;
-    alexa.registerHandlers(handlers, helperHandlers);
+    alexa.registerHandlers(newSessionHandlers, handlers, helperHandlers);
     alexa.execute();
+};
+
+var newSessionHandlers = {
+    // NewSession is a Catch all behaviour and entry point.
+    'NewSession': function(){
+        if(Object.keys(this.attributes).length === 0){
+            this.attributes['lessonsGiven'] = 0;
+        }
+
+        var count = this.attributes['lessonsGiven'].toString();
+        speechOut = 'Welcome, I am very glad to teach you more about Ghana. I have taught ' + count + 'people about Ghana. Would you want to know more about Ghana?';
+        repromptSpeech = "Say yes, or, teach me to start a new game, or say stop to quit";
+
+        this.handler.state = states.STARTMODE;
+        this.emit(':ask', speechOut, repromptSpeech);
+    }
 };
 
 var handlers = {
