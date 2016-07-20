@@ -9,8 +9,13 @@ var cardTitle = "Hello Ghana Flash Cards";
 var cardContent = "Learn about Ghana using Alexa flash card";
 
 var config = {
-    APP_ID : "amzn1.ask.skill.ae4eb4ed-6c4e-475d-ac16-d4a0865a28ce"
+    APP_ID : "amzn1.ask.skill.ae4eb4ed-6c4e-475d-ac16-d4a0865a28ce",
+
 }
+
+var url = function(searchFilter){
+    return "http://apiurl";
+};
 
 exports.handler = function (event, context, callback) {
     var alexa = Alexa.handler(event, context);
@@ -73,8 +78,19 @@ var helperHandlers = {
         this.emit(':tell', speachOut);
     },
 
-    'GetHistory' : function(){
+    'GetHistory' : function(filter){
+        http.get(url(filter), function(response){
+            var body = '';
+            response.on('data', function(data){
+                body += data;
+            });
 
+            response.on('end', function(){
+                this.emit(body);
+            })
+        }).on('error', function(e){
+            console.log('error: ' + e);
+        })
     },
 
     'GetCityHistory' : function(){
