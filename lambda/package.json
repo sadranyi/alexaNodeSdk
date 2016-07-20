@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/sadranyi/alexaNodeSdk/issues"
   },
-  "homepage": "https://github.com/sadranyi/alexaNodeSdk#readme"
+  "homepage": "https://github.com/sadranyi/alexaNodeSdk#readme",
+  "dependencies": {
+    "alexa-sdk": "^1.0.1"
+  }
 }
