@@ -1,0 +1,26 @@
+{
+  "name": "ghanaflashcards",
+  "version": "1.0.0",
+  "description": "Flash Card game about Ghana",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sadranyi/alexaNodeSdk.git"
+  },
+  "keywords": [
+    "Ghana",
+    "Flash",
+    "Cards",
+    "Alexa",
+    "Africa"
+  ],
+  "author": "Samuel S. K. Adranyi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sadranyi/alexaNodeSdk/issues"
+  },
+  "homepage": "https://github.com/sadranyi/alexaNodeSdk#readme"
+}
