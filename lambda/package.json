@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/sadranyi/alexaNodeSdk#readme",
   "dependencies": {
-    "alexa-sdk": "^1.0.1"
+    "alexa-sdk": "^1.0.1",
+    "moment": "^2.14.1",
+    "moment-timezone": "^0.5.4"
   }
 }
